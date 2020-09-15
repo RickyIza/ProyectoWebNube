@@ -1,0 +1,18 @@
+<!--Contenedor de los productos que se encuentran disponibles-->
+<div class="grid" > 
+  <div id="boton" class="genric-btn info-border radius" *ngFor="let p of productos | paginate: {itemsPerPage: 2, currentPage:p}">
+    <div class="media">
+      <h6>Juego: {{p.nombre}}</h6>
+      <h6>Precio: {{p.precio | currency}}</h6>
+      <h6>Fecha de Estreno: {{p.fechaelaboracion | date : 'longDate'}}</h6>
+
+    </div>
+  </div>
+</div>
+
+<!--Contenedor de la paginación de los productos -->
+<div class="container">
+  <div class="row">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+.grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
+    gap: 1em;
+    padding: 10px;
+}
+
+.media{
+    text-align: center;
+    display: list-item;
+}
+
+.input-container {
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+}
+
+#boton{
+    width: 220px;
+    height: 270px;
+}

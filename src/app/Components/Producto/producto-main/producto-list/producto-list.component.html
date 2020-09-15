@@ -1,0 +1,79 @@
+<div>
+    <div class="text-center">
+        <fa-icon class="fa-2x" [icon]="faListAlt"></fa-icon>
+    </div>
+</div>
+    <hr>
+    <div class="text-center">
+        <h3 class="mb-30">Lista de Juegos</h3>
+    </div>
+    <div class="wrapper wrapper--w790">
+        <div class="progress-table">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Juego</th>
+                        <th>Estreno</th>
+                        <th>Precio</th>
+                        <th>Estado</th>
+                        <th><button [routerLink]="['/producto/form']" class="genric-btn info-border circle arrow">
+                            <fa-icon [icon]="faPlusSquare"></fa-icon>
+                        </button></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let p of productos">
+                        <td>{{p.nombre}}</td>
+                        <td>{{p.fechaelaboracion | date : 'longDate'}}</td>
+                        <td>{{p.precio}} $</td>
+                        <td>{{p.estado | estado}}</td>
+                        <td>
+                            <div class="btn-group">
+                                <button [routerLink]="['/productos', p.idProducto]" class="genric-btn warning-border circle arrow">
+                                    <fa-icon [icon]="faEye"></fa-icon>
+                                </button>
+                                <button [routerLink]="['/producto/form', p.idProducto]"  class="genric-btn primary-border circle arrow">
+                                    <fa-icon [icon]="faPencilAlt"></fa-icon>
+                                </button>
+                                <button (click)="delete(p)" class="genric-btn danger-border circle arrow">
+                                    <fa-icon [icon]="faTrash"></fa-icon>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!--<div class="table-head">
+                <div class="serial">
+                   <div class="text-center">Producto</div>
+                </div>
+                <div class="country">Fecha de Elaboración</div>
+                <div class="country">Fecha de Vencimiento</div>
+                <div class="visit">Estado</div>
+                <div class="percentage"><button [routerLink]="['/producto/form']" class="genric-btn info-border circle arrow">
+                        <fa-icon [icon]="faPlusSquare"></fa-icon>
+                    </button></div>
+            </div>
+            <div *ngFor = "let p of productos" class="table-row">
+                <div class="serial">{{p.nombre}}</div>
+                <div class="country">{{p.fechaelaboracion | date : 'longDate'}}</div>
+                <div class="country">{{p.fechavencimiento | date : 'longDate'}}</div>
+                <div class="visit">{{p.estado}}</div>
+                <div class="percentage">
+                    <button [routerLink]="['/productos', p.idProducto]" class="genric-btn warning-border circle arrow">
+                        <fa-icon [icon]="faEye"></fa-icon>
+                    </button>
+                    <button [routerLink]="['/producto/form', p.idProducto]"  class="genric-btn primary-border circle arrow">
+                        <fa-icon [icon]="faPencilAlt"></fa-icon>
+                    </button>
+                    <button (click)="delete(p)" class="genric-btn danger-border circle arrow">
+                        <fa-icon [icon]="faTrash"></fa-icon>
+                    </button>
+                </div>
+            </div>-->
+        </div>
+    </div>
+
+
+
+

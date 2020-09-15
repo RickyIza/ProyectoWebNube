@@ -1,0 +1,35 @@
+
+    <div class="text-center">
+        <fa-icon class="fa-2x" [icon]="faListAlt"></fa-icon>
+    </div>
+    <hr>
+    <h3 class="mb-30 text-center">Lista de Usuarios</h3>
+    <div class="wrapper wrapper--w790">
+        <div class="progress-table">
+            <div class="table-head">
+                <div class="serial">Nombres</div>
+                <div class="country">Apellidos</div>
+                <div class="visit">Cédula</div>
+                <div class="percentage"><button [routerLink]="['/usuario/form']" class="genric-btn info-border circle arrow">
+                        <fa-icon [icon]="faPlusSquare"></fa-icon>
+                    </button></div>
+            </div>
+            <div *ngFor="let u of usuarios" class="table-row">
+                <div class="serial">{{u.nombre}}</div>
+                <div class="country">{{u.apellido}}</div>
+                <div class="visit">{{u.cedula}}</div>
+                <div class="percentage">
+                    <button [routerLink]="['/usuarios', u.idUsuario]" class="genric-btn warning-border circle arrow">
+                        <fa-icon [icon]="faEye"></fa-icon>
+                    </button>
+                    <button [routerLink]="['/usuario/form', u.idUsuario]" class="genric-btn primary-border circle arrow">
+                        <fa-icon [icon]="faPencilAlt"></fa-icon>
+                    </button>
+                    <button (click)="delete(u)" class="genric-btn danger-border circle arrow">
+                        <fa-icon [icon]="faTrash"></fa-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>

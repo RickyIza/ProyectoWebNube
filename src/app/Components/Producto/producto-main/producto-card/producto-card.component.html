@@ -1,0 +1,98 @@
+<br>
+<br>
+<div class="container">
+    <div class="d-flex justify-content-around">
+        <button class="genric-btn info-border radius">
+        <div class="media">
+            <div class="media-left">
+                <fa-icon class="mr-3 fa-2x" [icon]='faIdCard'></fa-icon>
+            </div>
+            <div class="media-body">
+                <small class="media-heading">Nombre del Juego</small>
+                <p class="h6"><strong>{{producto.nombre}}</strong></p>
+            </div>
+        </div>
+    </button>
+    <button class="genric-btn info-border radius">
+        <div class="media">
+            <div class="media-left">
+                <fa-icon class="mr-3 fa-2x" [icon]='faUser'></fa-icon>
+            </div>
+            <div class="media-body">
+                <small class="media-heading">Fecha de Estreno</small>
+                <p class="h6"><strong>{{producto.fechavencimiento | date : 'longDate'}}</strong></p>
+            </div>
+        </div>
+    </button>
+    <button class="genric-btn info-border radius">
+
+        <div class="media">
+            <div class="media-left">
+                <fa-icon class="mr-3 fa-2x" [icon]='faUser'></fa-icon>
+            </div>
+            <div class="media-body">
+                <small class="media-heading">Creación del Juego</small>
+                <p class="h6"><strong>{{producto.fechaelaboracion | date : 'longDate'}}</strong></p>
+            </div>
+        </div>
+    </button>
+    </div>
+    <hr>
+    <div class="d-flex justify-content-around">
+        <button class="genric-btn info-border radius">
+        <div class="media">
+            <div class="media-left">
+                <fa-icon class="mr-3 fa-2x" [icon]='faUser'></fa-icon>
+            </div>
+            <div class="media-body">
+                <small class="media-heading">Precio</small>
+                <p class="h6"><strong>{{producto.precio}}</strong></p>
+            </div>
+        </div>
+    </button>
+    <button class="genric-btn info-border radius">
+        <div class="media">
+            <div class="media-left">
+                <fa-icon class="mr-3 fa-2x" [icon]='faUser'></fa-icon>
+            </div>
+            <div class="media-body">
+                <small class="media-heading">Imagen</small>
+                <p class="h6"><strong>{{producto.comentario}}</strong></p>
+                
+            </div>
+        </div>
+    </button>
+    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+        <div class="single-new-pro mb-30 text-center">
+            <div class="product-img">
+                <span class="input-group-text">
+                    <img [src]="imageToShow" style="width: 350px; height:300px"/>
+                  </span>
+            </div>
+            <div class="product-caption">
+                <h3><p class="h6"><strong>{{producto.nombre}}</strong></p></h3>
+                <strong>{{producto.precio}} $</strong>
+            </div>
+        </div>
+    </div>
+    <button class="genric-btn info-border radius">
+        <div class="media">
+            <div class="media-left">
+                <fa-icon class="mr-3 fa-2x" [icon]='faCalendar'></fa-icon>
+            </div>
+            <div class="media-body">
+                <small class="media-heading">Estado</small>
+                <p class="h6"><strong>{{producto.estado | estado}}</strong></p>
+            </div>
+        </div>
+    </button>
+    </div>
+    <div class="row">
+        <button [routerLink]="['/productos']" class="genric-btn warning-border circle arrow">
+            <fa-icon [icon]="faBackspace"></fa-icon>
+        </button>
+    </div>
+    <hr>
+    <br>
+</div>
+

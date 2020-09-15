@@ -1,0 +1,97 @@
+<div class="container">
+    <div class="text-center">
+        <fa-icon class="fa-2x" [icon]="faUserPlus"></fa-icon>
+    </div>
+    <hr>
+    <h6>{{title}}</h6>
+</div>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="card-body">
+        <div class="billing_details">
+            <h3>Usuarios</h3>
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="col-md-12 form-group p_star">
+                        <input type="text" class="form-control form-control-user" formControlName="cedula" 
+                        [(ngModel)]="usuario.cedula"  placeholder="Cedula"/>
+                        <div *ngIf="cedula.invalid && (cedula.dirty || cedula.touched)" >
+                            <div class="required" *ngIf="cedula.errors.required">El cédula es requerida</div>
+                         </div>
+                    </div>
+                    <div class="col-md-6 form-group p_star">
+                        <input type="text" class="form-control" formControlName="nombre" 
+                        [(ngModel)]="usuario.nombre" placeholder="Nombre"/>
+                        <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" >
+                            <div class="required" *ngIf="nombre.errors.required">El nombre es requerido</div>
+                         </div>
+                    </div>
+                    <div class="col-md-6 form-group p_star">
+                        <input type="text" class="form-control" formControlName="apellido" 
+                        [(ngModel)]="usuario.apellido" placeholder="Apellidos"/>
+                        <div *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)" >
+                            <div class="required" *ngIf="apellido.errors.required">El apellido es requerido</div>
+                         </div>
+                    </div>
+                    <div class="col-md-12 form-group">
+                        <input formControlName="telefono" type="text" class="form-control form-control-user" 
+                        [(ngModel)]="usuario.telefono" placeholder="Teléfono" />
+                        <div *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)" >
+                            <div class="required" *ngIf="telefono.errors.required">El teléfono es requerido</div>
+                         </div>
+                    </div>
+                    <div class="col-md-12 form-group">
+                        <input formControlName="direccion" type="text" class="form-control form-control-user" 
+                        [(ngModel)]="usuario.direccion" placeholder="Dirección" />
+                        <div *ngIf="direccion.invalid && (direccion.dirty || direccion.touched)" >
+                            <div class="required" *ngIf="direccion.errors.required">El dirección es requerido</div>
+                         </div>
+                    </div>
+                    <div class="col-md-12 form-group p_star">
+                        <input formControlName="correo" type="email" class="form-control form-control-user" 
+                        [(ngModel)]="usuario.correo" placeholder="Correo" />
+                        <div *ngIf="correo.invalid && (correo.dirty || correo.touched)" >
+                            <div class="required" *ngIf="correo.errors.required">El correo es requerido</div>
+                        </div>
+                        <div class="required" *ngIf="(correo.dirty || correo.touched) && correo.invalid && correo.errors.pattern">
+                            Debe ser un correo válido
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group p_star">
+                        <input formControlName="usuariosesion" type="text" class="form-control form-control-user" 
+                        [(ngModel)]="usuario.usuariosesion" placeholder="Usuario"/>
+                        <div *ngIf="usuariosesion.invalid && (usuariosesion.dirty || usuariosesion.touched)" >
+                            <div class="required" *ngIf="usuariosesion.errors.required">El Usuario es requerido</div>
+                         </div>
+                    </div>
+                    <div class="col-md-6 form-group p_star">
+                        <input formControlName="contrasena" type="password" class="form-control form-control-user" 
+                        [(ngModel)]="usuario.contrasena" placeholder="contrasena" />
+                        <div *ngIf="contrasena.invalid && (contrasena.dirty || contrasena.touched)" >
+                            <div class="required" *ngIf="contrasena.errors.required">La contraseña es requerida</div>
+                         </div>
+                    </div>
+                    <div class="col-md-6 form-group p_star">
+                        <div>
+                            <select formControlName="rol" [(ngModel)]="usuario.rol"
+                                class="form-control form-control-user">
+                                <option>-Escoger el rol-</option>
+                                <option value="C">Cliente</option>
+                                <option value="A">Administrador</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <button class="genric-btn success circle arrow" type="submit" [disabled]="!form.valid">Guardar</button>
+                    <br>
+                    <br>
+                    <button type="button" (click)="onReset()" class="genric-btn danger circle arrow">Cancelar</button>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</form>

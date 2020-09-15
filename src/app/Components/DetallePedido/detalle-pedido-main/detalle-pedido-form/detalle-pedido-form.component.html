@@ -1,0 +1,74 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off">
+                <div class="form-group">
+                    <label>Juegos</label>
+                    <select formControlName="idProducto" [(ngModel)]="detalle.idProducto" class="form-control" (change)="actualizarPrecio($event.target)">
+                        <option value="0">-Select-</option>                      
+                        <option *ngFor="let item of productos" [value]="item.idProducto">{{item.nombre}}</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Cantidad:</div>
+                            </div>
+                            <input type="number" step="1" max="99" min="1" class="form-control" formControlName="cantidad" [(ngModel)]="detalle.cantidad" (keyup)="calcularTotal()">
+                        </div>
+                    </div>
+                    <div class="form-group col-md 6">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Total:</div>
+                            </div>
+                            <input type="number" formControlName="subtotal" [(ngModel)]="detalle.subtotal" class="form-control" readonly/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-dark">Agregar al carrito</button>
+                    <button type="button" [routerLink]="['/cabecera']" class="btn btn-dark">Siguiente</button>
+                </div>
+            </form>
+            <div class="row">
+                <div class="col-md-6">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr class="table-info">
+                                <th>Cantidad</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of detallespedido">
+                                <td>{{item.cantidad}}</td>
+                                <td>{{item.subtotal}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr class="table-info">
+                                <th>Nombre</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of nombre;let i = index">
+                                <td>{{item}}</td>
+                                <td><button type="button" (click)="deleteDetalle(i)" class="btn btn-sm btn-danger" ><fa-icon class="1px" [icon]="faTrash"></fa-icon></button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <app-usuario-carrito></app-usuario-carrito>
+        </div>
+    </div>
+</div>
+

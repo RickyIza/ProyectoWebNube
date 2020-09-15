@@ -1,0 +1,29 @@
+    <div class="container">  
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-6">
+                <div class="login_part_form">
+                    <div class="login_part_form_iner">
+                        <h3>Bienvenidos <br>
+                            Iniciar Sesión</h3>
+
+                            <div class="col-md-12 form-group p_star">
+                                <input type="text" class="form-control" id="usuariosesion " name="usuariosesion " 
+                                    placeholder="Usuario"#usuariosesion >
+                            </div>
+                            <div class="col-md-12 form-group p_star">
+                                <input type="password" class="form-control" id="contrasena" name="contrasena" 
+                                    placeholder="Contraseña" #contrasena>
+                            </div>
+                            <div class="col-md-12 form-group">
+                                
+                                <button  class="btn_3" (click)="login(usuariosesion.value, contrasena.value)" >
+                                    Ingresar
+                                </button>
+                                
+                            </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

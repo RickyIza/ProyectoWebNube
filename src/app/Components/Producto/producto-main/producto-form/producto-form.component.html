@@ -1,0 +1,102 @@
+<div class="container">
+    <div class="text-center">
+        <fa-icon class="fa-2x" [icon]="faUserPlus"></fa-icon>
+    </div>
+    <hr>
+</div>
+<div class="wrapper wrapper--w790">
+    <div class="card card-5">
+        <div class="card-heading">
+            <h2 class="title">{{title1}}</h2>
+        </div>
+        <div class="card-body">
+            <form [formGroup]="formJuego" (ngSubmit)="onSubmit()" class="user" enctype="multipart/form-data" #imageForm = ngForm>
+ 
+                <div class="card-body">
+                    <div class="form-row">
+                        <div class="name">Nombre del Juego</div>
+                        <div class="value">
+                            <div class="input-group">
+                                <input class="input--style-5" type="text" formControlName="nombre"
+                                    [(ngModel)]="producto.nombre">
+                            </div>
+                            <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" >
+                               <div class="required" *ngIf="nombre.errors.required">El nombre es requerido</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row m-b-55">
+                        <div class="name">Fecha de Estreno</div>
+                        <div class="value">
+                            <div class="row row-space">
+                                <div class="input-group-desc">
+                                    <input class="input--style-5" type="date" formControlName="fechaelaboracion"
+                                        [(ngModel)]="producto.fechaelaboracion">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="name">Fecha de Creación</div>
+                        <div class="value">
+                            <div class="row row-space">
+                                <div class="input-group-desc">
+                                    <input class="input--style-5" type="date" formControlName="fechavencimiento"
+                                        [(ngModel)]="producto.fechavencimiento">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="name">Precio</div>
+                        <div class="value">
+                            <div class="input-group">
+                                <input required class="input--style-5" type="number" formControlName="precio"
+                                    [(ngModel)]="producto.precio" min="0" step="0.1">
+                            </div>
+                            <div *ngIf="precio.invalid && (precio.dirty || precio.touched)" >
+                                <div class="required" *ngIf="precio.errors.required">El precio es requerido</div>
+                             </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-12 col-md-6 ">
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <img [src]="imageUrl"  style="width: 350px; height:300px">
+                            </span>
+                          </div>
+                          <input formControlName="comentario" type="file" (change)="handleFileInput($event.target.files)" class="form-control-file"  placeholder="Imagen" #Image accept="image/*" required/>
+                        </div>
+                      </div>
+
+                    <div class="form-row">
+                        <div class="name">Estado</div>
+                        <div class="value">
+                            <div class="input-group">
+                                <div class="rs-select2 js-select-simple select--no-search">
+                                    <select formControlName="estado" [(ngModel)]="producto.estado">
+                                        <option disabled="disabled" selected="selected">Opcion</option>
+                                        <option value="A">Agotado</option>
+                                        <option value="D">Disponible</option>
+                                    </select>
+                                    <div class="select-dropdown"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="btn-group text-center">
+                        <button class="genric-btn success circle arrow" type="submit" [disabled]="Image.value=='' || !formJuego.valid  " class="btn btn-success">
+                          <fa-icon [icon]="faSave"></fa-icon>&nbsp;Guardar
+                        </button>
+                        <button type="reset" (click)="onReset()" class="btn btn-danger">
+                          <fa-icon [icon]="faTimes"></fa-icon>&nbsp;Cancelar
+                        </button>
+                      </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

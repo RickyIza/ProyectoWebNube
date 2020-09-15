@@ -1,0 +1,97 @@
+<br>
+<br>
+<div class="container">
+    <div class="d-flex justify-content-around">
+        <div class="media">
+            <div class="media-left">
+                <fa-icon class="mr-3 fa-2x" [icon]='faIdCard'></fa-icon>
+            </div>
+            <div class="media-body">
+                <small class="media-heading">Cédula</small>
+                <p class="h6"><strong>{{usuario.cedula}}</strong></p>
+            </div>
+        </div>
+        <div class="media">
+            <div class="media-left">
+                <fa-icon class="mr-3 fa-2x" [icon]='faUser'></fa-icon>
+            </div>
+            <div class="media-body">
+                <small class="media-heading">Nombre</small>
+                <p class="h6"><strong>{{usuario.nombre}}</strong></p>
+            </div>
+        </div>
+        <div class="media">
+            <div class="media-left">
+                <fa-icon class="mr-3 fa-2x" [icon]='faUser'></fa-icon>
+            </div>
+            <div class="media-body">
+                <small class="media-heading">Apellido</small>
+                <p class="h6"><strong>{{usuario.apellido}}</strong></p>
+            </div>
+        </div>
+        <div class="media">
+            <div class="media-left">
+                <fa-icon class="mr-3 fa-2x" [icon]='faPhoneAlt'></fa-icon>
+            </div>
+            <div class="media-body">
+                <small class="media-heading">Teléfono</small>
+                <p class="h6"><strong>{{usuario.telefono}}</strong></p>
+            </div>
+        </div>
+        <div class="media">
+            <div class="media-left">
+                <fa-icon class="mr-3 fa-2x" [icon]='faMapMarkedAlt'></fa-icon>
+            </div>
+            <div class="media-body">
+                <small class="media-heading">Dirección</small>
+                <p class="h6"><strong>{{usuario.direccion}}</strong></p>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="d-flex justify-content-around">
+        <div class="media">
+            <div class="media-left">
+                <fa-icon class="mr-3 fa-2x" [icon]='faEnvelope'></fa-icon>
+            </div>
+            <div class="media-body">
+                <small class="media-heading">Correo</small>
+                <p class="h6"><strong>{{usuario.correo}}</strong></p>
+            </div>
+        </div>
+        <div class="media">
+            <div class="media-left">
+                <fa-icon class="mr-3 fa-2x" [icon]='faCalendar'></fa-icon>
+            </div>
+            <div class="media-body">
+                <small class="media-heading">Constraseña</small>
+                <p class="h6"><strong>{{usuario.contrasena}}</strong></p>
+            </div>
+        </div>
+        <div class="media">
+            <div class="media-left">
+                <fa-icon class="mr-3 fa-2x" [icon]='faUser'></fa-icon>
+            </div>
+            <div class="media-body">
+                <small class="media-heading">Usuario</small>
+                <p class="h6"><strong>{{usuario.usuariosesion}}</strong></p>
+            </div>
+        </div>
+        <div class="media">
+            <div class="media-left">
+                <fa-icon class="mr-3 fa-2x" [icon]='faGenderless'></fa-icon>
+            </div>
+            <div class="media-body">
+                <small class="media-heading">Rol</small>
+                <p class="h6"><strong>{{usuario.rol | rol}}</strong></p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <button [routerLink]="['/usuarios']" class="genric-btn warning-border circle arrow">
+            <fa-icon [icon]="faBackspace"></fa-icon>
+        </button>
+    </div>
+    <hr>
+    <br>
+</div>

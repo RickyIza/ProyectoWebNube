@@ -1,0 +1,102 @@
+<div class="container">
+    <div class="row">
+        <form autocomplete="off" [formGroup]="form" (ngSubmit)="onSubmit()" class="user">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">Estado del Pedido:</div>
+                                </div>
+                                <input class="form-control" formControlName="estadopedido" [(ngModel)]="pedido.estadopedido" type="text" readonly/><br>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">Cliente:</div>
+                                </div>
+                                <h5>{{usuario.nombre}} {{usuario.apellido}}</h5>
+                                <input class="form-control" formControlName="idUsuario" [(ngModel)]="pedido.idUsuario" type="hidden" readonly/><br>
+                                <!--<input type="text" name="criteria" id="criteria" class="form-control" placeholder="Ingrese su número de cédula y pulse Enter..."  (change)="searchUsuario($event)" />-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">Total:</div>
+                                </div>
+                                <input type="number" formControlName="total" [(ngModel)]="pedido.total" class="form-control" readonly/>
+                            </div>
+                        </div>
+                    </div>
+                    <!--<table *ngIf="usuarios != null && usuarios.length > 0" class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Nombre
+                                </th>
+                                <th>
+                                    Apellido
+                                </th>
+                                <th>
+                                    Cédula
+                                </th>          
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>        
+                            <tr *ngFor="let item of usuarios">
+                                <td>
+                                    {{item.nombre}}
+                                </td>
+                                <td>
+                                    {{item.apellido}}
+                                </td>
+                                <td>
+                                    {{item.cedula}}
+                                </td>                
+                                <td class="btn-group">
+                                    <button type="button" (click)="selectUsuario(item.idUsuario)" class="btn btn-sm btn-info" ><fa-icon [icon]="faCheck"></fa-icon></button>                                            
+                                </td>
+                            </tr>  
+                        </tbody>
+                    </table>-->    
+                </div>
+            </div>
+        </form>                                            
+    </div>
+    <div class="row">
+        <div class="percentage">
+            <button type="submit" (click)="onSubmit()" class="btn btn-sm btn-info" ><fa-icon [icon]="faCheck"></fa-icon></button>                                            
+        <button type="button" class="btn btn-sm btn-danger" [routerLink]="['/detalle']"><fa-icon [icon]="faBackspace"></fa-icon></button>
+        </div>
+    </div>
+</div>
+<!--Modal
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Escoje el producto que deseas:</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <app-detalle-pedido-form (detalleAdded)="addDetalle($event)"></app-detalle-pedido-form>
+            </div>        
+        </div>
+    </div>
+    <div>
+        <pre>
+            {{pedido | json}}
+        </pre>
+    </div>
+</div> data-toggle="modal" data-target="#exampleModal"-->
+
